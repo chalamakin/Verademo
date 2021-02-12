@@ -1,0 +1,17 @@
+build/
+target/
+*.swp
+.idea/
+.DS_Store
+*.iml
+.classpath
+.settings/
+.project
+WebContent/
+flaws.json
+.vscode/settings.json
+results.json
+srcclr.yml
+devops-scanner-*
+gl-scanner*
+agent_scan.sh
