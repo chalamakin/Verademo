@@ -40,10 +40,23 @@ object Build : BuildType({
 
     steps {
         maven {
+            id = "RUNNER_1"
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
     }
+    step {
+            id = "RUNNER_2"
+            type = "teamcity-veracode-plugin"
+            param("appName", "%env.TEAMCITY_PROJECT_NAME%")
+            param("createProfile", "true")
+            param("criticality", "VeryHigh")
+            param("waitForScan", "false")
+            param("useGlobalCredentials", "true")
+            param("createSandbox", "true")
+            param("version", "%env.BUILD_NUMBER%")
+        }
+        stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
 
     triggers {
         vcs {
