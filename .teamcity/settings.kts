@@ -44,8 +44,7 @@ object Build : BuildType({
             goals = "clean test"
             runnerArgs = "-Dmaven.test.failure.ignore=true"
         }
-    }
-    step {
+        step {
             id = "RUNNER_2"
             type = "teamcity-veracode-plugin"
             param("appName", "%env.TEAMCITY_PROJECT_NAME%")
@@ -57,6 +56,8 @@ object Build : BuildType({
             param("version", "%env.BUILD_NUMBER%")
         }
         stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
+    }
+    
 
     triggers {
         vcs {
