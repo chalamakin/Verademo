@@ -55,7 +55,7 @@ object Build : BuildType({
             param("createSandbox", "true")
             param("version", "%env.BUILD_NUMBER%")
         }
-        stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2", "RUNNER_3")
+        stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
     }
 
     triggers {
