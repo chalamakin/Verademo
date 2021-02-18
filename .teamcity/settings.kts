@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.v2019_2.*
+import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.exec
 import jetbrains.buildServer.configs.kotlin.v2019_2.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.v2019_2.triggers.vcs
 
@@ -55,9 +56,12 @@ object Build : BuildType({
             param("createSandbox", "true")
             param("version", "%env.BUILD_NUMBER%")
         }
+        exec {
+            id = "RUNNER_3"
+            path = "%build.counter%"
+        }
         stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
     }
-    
 
     triggers {
         vcs {
