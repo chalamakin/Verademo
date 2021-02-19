@@ -52,7 +52,7 @@ object Build : BuildType({
             param("criticality", "VeryHigh")
             param("waitForScan", "false")
             param("useGlobalCredentials", "true")
-            param("createSandbox", "true")
+            param("createSandbox", "false")
             param("version", "%env.BUILD_NUMBER%")
         }
         stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
