@@ -47,7 +47,7 @@ object Build : BuildType({
         step {
             id = "RUNNER_2"
             type = "teamcity-veracode-plugin"
-            param("teams", "Security Lead")
+            param("teams", "Default Team")
             param("appName", "%env.TEAMCITY_PROJECT_NAME%")
             param("createProfile", "true")
             param("criticality", "VeryHigh")
