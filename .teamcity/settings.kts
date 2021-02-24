@@ -47,14 +47,16 @@ object Build : BuildType({
         step {
             id = "RUNNER_2"
             type = "teamcity-veracode-plugin"
+            param("vid", "8f41193670308f0c0973574cc63e8a23")
             param("teams", "Default Team")
-            param("appName", "%env.TEAMCITY_PROJECT_NAME%")
-            param("createProfile", "true")
-            param("criticality", "VeryHigh")
+            param("appName", "Verademo-Policy Scan")
+            param("createProfile", "false")
+            param("criticality", "High")
             param("waitForScan", "false")
-            param("useGlobalCredentials", "true")
-            param("createSandbox", "false")
+            param("useGlobalCredentials", "false")
+            param("createSandbox", "true")
             param("version", "%env.BUILD_NUMBER%")
+            param("vkey", "eb466c7561e1d434469287b3f183489f2615435741fc75f84220df1e34bac4edf179cf672d6c4733c89030c1e304d7fca4bf01608c280bc6d4c8cfcfe7523239")
         }
         stepsOrder = arrayListOf("RUNNER_1", "RUNNER_2")
     }
